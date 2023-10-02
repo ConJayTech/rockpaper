@@ -6,7 +6,12 @@
 <body>
   <script>
     // Getting User Input
-
+    const PlayerSelection = prompt("Choose rock, paper, or scissors").toLocaleLowerCase();
+    if(PlayerSelection ==="paper" || PlayerSelection ==="rock" || PlayerSelection ==="scissors"){
+        console.log("You choose " + (PlayerSelection));
+    } else {
+        console.log("Unrecognized Input");
+    }
     
     // Getting Computer Input
     function getComputerChoice () {
