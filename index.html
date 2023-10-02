@@ -20,7 +20,24 @@
     console.log("Computer chooses " + getComputerChoice());
      
 
-
+    //Playing a Round
+    function playRound(PlayerSelection,ComputerSelection) {
+        ComputerSelection = getComputerChoice();
+        PlayerSelection = PlayerSelection;
+        if (ComputerSelection == PlayerSelection) {
+            return "It's a tie!";
+        } else if (
+            (ComputerSelection == "rock" && PlayerSelection == "scissors") ||
+            (ComputerSelection == "scissors" && PlayerSelection == "paper") ||
+            (ComputerSelection == "paper" && PlayerSelection == "rock")) {
+            return "Computer Wins!";
+        } else if (
+            (ComputerSelection == "rock" && PlayerSelection == "paper") ||
+            (ComputerSelection == "scissors" && PlayerSelection == "rock") ||
+            (ComputerSelection == "paper" && PlayerSelection == "scissors")) {
+            return "Player Wins!";
+        }
+    }
   </script>
 </body>
 </html>
