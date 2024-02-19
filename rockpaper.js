@@ -37,35 +37,20 @@
        // let playerScore = 0;
 
         //for (i=0;i<5;i++) {
-        const buttonRock = document.querySelector("#rock");
-        const buttonPaper = document.querySelector("#paper");
-        const buttonScissors = document.querySelector("#scissors");
-        buttonRock.addEventListener('click', () => {
-            const result = playRound("rock", computerSelection());
-            console.log(result);
-            if (result.includes("Win!")) {
-                playerScore++;
-                console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
-            } else if (result.includes("Lose!")) {
-                computerScore++;
-                console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
-            }
-        });
 
-        buttonPaper.addEventListener('click', () => {
-            const result = playRound("paper", computerSelection());
-            console.log(result);
-            if (result.includes("Win!")) {
-                playerScore++;
-                console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
-            } else if (result.includes("Lose!")) {
-                computerScore++;
-                console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
-            }
-        });
+    //Buttons and Event Listeners    
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                //alert(button.id);
 
-        buttonScissors.addEventListener('click', () => {
-            const result = playRound("scissors", computerSelection());
+     
+    
+        //const buttonRock = document.querySelector("#rock");
+        //const buttonPaper = document.querySelector("#paper");
+        //const buttonScissors = document.querySelector("#scissors");
+        //buttonRock.addEventListener('click', () => {
+            const result = playRound(button.id, computerSelection());
             console.log(result);
             if (result.includes("Win!")) {
                 playerScore++;
@@ -74,7 +59,33 @@
                 computerScore++;
                 console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
             }
-        });
+            });
+            });
+        
+
+        //buttonPaper.addEventListener('click', () => {
+        //    const result = playRound("paper", computerSelection());
+        //    console.log(result);
+        //    if (result.includes("Win!")) {
+        //        playerScore++;
+        //        console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
+        //    } else if (result.includes("Lose!")) {
+        //        computerScore++;
+        //        console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
+        //    }
+        //});
+
+        //buttonScissors.addEventListener('click', () => {
+        //    const result = playRound("scissors", computerSelection());
+        //    console.log(result);
+        //    if (result.includes("Win!")) {
+        //        playerScore++;
+         //       console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
+        //    } else if (result.includes("Lose!")) {
+        //        computerScore++;
+        //        console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
+        //    }
+        //});
     
         
 //        console.log(
