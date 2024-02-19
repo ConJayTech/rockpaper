@@ -7,26 +7,42 @@
     //        return "Unrecognized Input";
     //    } }
         
+    let playerScore = 0;
+    let computerScore = 0;
+    const buttons = document.querySelectorAll('button');
+    const outcome = document.querySelector('.result');
+
+    
     // Getting Computer Input
     function computerSelection() {
         return choice = ['rock', 'paper', 'scissors'][Math.floor(Math.random()*3)];
     }      
     
     //Playing a Round
-    function playRound(playerSelection, computerSelection) {
+    const playRound = (playerSelection, computerSelection) => {
         console.log("Player: " + playerSelection + " VS" + " Computer: " + computerSelection)
+        //const outcome = document.querySelector('.result');
         if (computerSelection == playerSelection) {
+            const p = document.createElement('p');
+            p.innerText = 'It\'s a tie!';
+            outcome.appendChild(p);
             return "It's a tie!";
         } else if (
             (computerSelection == "rock" && playerSelection == "scissors") ||
             (computerSelection == "scissors" && playerSelection == "paper") ||
             (computerSelection == "paper" && playerSelection == "rock")) {
+            const p = document.createElement('p');
+            p.innerText = 'You Lose!';
+            outcome.appendChild(p);
             return "You Lose!";
 
         } else if (
             (computerSelection == "rock" && playerSelection == "paper") ||
             (computerSelection == "scissors" && playerSelection == "rock") ||
             (computerSelection == "paper" && playerSelection == "scissors")) {
+            const p = document.createElement('p');
+            p.innerText = 'You Win!';
+            outcome.appendChild(p);
             return "You Win!";
         }
     }
@@ -39,53 +55,21 @@
         //for (i=0;i<5;i++) {
 
     //Buttons and Event Listeners    
-        const buttons = document.querySelectorAll('button');
         buttons.forEach((button) => {
             button.addEventListener('click', () => {
-                //alert(button.id);
-
-     
-    
-        //const buttonRock = document.querySelector("#rock");
-        //const buttonPaper = document.querySelector("#paper");
-        //const buttonScissors = document.querySelector("#scissors");
-        //buttonRock.addEventListener('click', () => {
-            const result = playRound(button.id, computerSelection());
-            console.log(result);
-            if (result.includes("Win!")) {
-                playerScore++;
-                console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
-            } else if (result.includes("Lose!")) {
-                computerScore++;
-                console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
-            }
-            });
+        
+                const result = playRound(button.id, computerSelection());
+                console.log(result);
+                    if (result.includes("Win!")) {
+                    playerScore++;
+                    console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
+                        } else if (result.includes("Lose!")) {
+                    computerScore++;
+                    console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
+                        }
+                   });
             });
         
-
-        //buttonPaper.addEventListener('click', () => {
-        //    const result = playRound("paper", computerSelection());
-        //    console.log(result);
-        //    if (result.includes("Win!")) {
-        //        playerScore++;
-        //        console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
-        //    } else if (result.includes("Lose!")) {
-        //        computerScore++;
-        //        console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
-        //    }
-        //});
-
-        //buttonScissors.addEventListener('click', () => {
-        //    const result = playRound("scissors", computerSelection());
-        //    console.log(result);
-        //    if (result.includes("Win!")) {
-        //        playerScore++;
-         //       console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
-        //    } else if (result.includes("Lose!")) {
-        //        computerScore++;
-        //        console.log("Computer:" + computerScore + "|" + "Player:" + playerScore);
-        //    }
-        //});
     
         
 //        console.log(
